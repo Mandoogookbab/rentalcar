@@ -1,0 +1,11 @@
+update log 20180529 minseon
+1. map.html 생성 (daum api 및 튜토리얼 참고)
+2. map.html에 지점 리스트 표 추가 / 주소는 지하철역 기준으로 임의로, 전화번호는 임의로 찍었음.
+현재 아무 레이아웃 적용하지 않음. css 적용 단계에서 레이아웃 조정 필요.
+문의하기(채팅) 연결버튼 하나 놔주어도 좋을듯.
+3. 메뉴에 <Rental Car Pickup Station> 추가
+4. admin계정에서 car type update는 하지 않기로 함: 차는 일단 사 오면 끝이라고 가정.
+5. C:\xampp\htdocs\rentalcar\rentcar_1.sql 파일에서 <reservation>테이블 수정: 지점 선택 가능하게: car_station varchar(30) 추가
+6. insertreservationview/do에서 에러 있음. 디버깅 필요.
+Parse error: syntax error, unexpected '$sql' (T_VARIABLE) in C:\xampp\h	tdocs\rentalcar\insertReservationDo.php on line 11
+: insert가 안 되므로 update도 수정은 했으나 검증 불가

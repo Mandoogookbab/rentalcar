@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rental Car Pickup Station</title>
+    
+</head>
+<body>
+<!-- 지도를 표시할 div 입니다 -->
+<div id="map" style="width:500px;height:350px;"></div>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=956d7d735d45e403a49d41677756e5e4"></script>
+    <script>
+        var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new daum.maps.LatLng(37.535930, 126.997205), // 지도의 중심좌표
+                level: 8, // 지도의 확대 레벨
+                mapTypeId : daum.maps.MapTypeId.ROADMAP // 지도종류
+            }; 
+
+        // 지도를 생성한다 
+        var map = new daum.maps.Map(mapContainer, mapOption); 
+
+        // 지도에 확대 축소 컨트롤을 생성한다
+        var zoomControl = new daum.maps.ZoomControl();
+
+        // 지도의 우측에 확대 축소 컨트롤을 추가한다
+        map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+
+        // 지도에 마커를 생성하고 표시한다
+       var positions = [
+    {
+        title: '여의도', 
+        latlng: new daum.maps.LatLng(37.521346, 126.923993)
+    },
+    {
+        title: '신촌', 
+        latlng: new daum.maps.LatLng(37.554655, 126.936907)
+    },
+    {
+        title: '종로', 
+        latlng: new daum.maps.LatLng(37.571466, 126.992042)
+    },
+    {
+        title: '서울역',
+        latlng: new daum.maps.LatLng(37.554298, 126.970497)
+    },
+    {
+        title: '강남', 
+        latlng: new daum.maps.LatLng(37.497869, 127.027876)
+    },
+    {
+        title: '건대', 
+        latlng: new daum.maps.LatLng(37.539982, 127.070617)
+    },
+    
+    //화살표에 장소 이름이 같이 떴으면 좋겠는데!
+];
+
+// 마커 이미지의 이미지 주소입니다
+var imageSrc = "http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+    
+for (var i = 0; i < positions.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    var imageSize = new daum.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
+    
+    // 마커를 생성합니다
+    var marker = new daum.maps.Marker({
+        map: map, // 마커를 표시할 지도
+        position: positions[i].latlng, // 마커를 표시할 위치
+        title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage // 마커 이미지 
+    });
+}
+
+    </script>
+
+
+<table width="800">
+    <tr>
+        <td colspan="3"><h3> Rental Car Station Information </h3></td>
+    </tr>
+    <tr>
+        <td> Name </td>
+        <td> Address </td>
+        <td> Phone Number </td>
+    </tr>
+    <tr>
+        <td> Yeouido </td>
+        <td> 서울특별시 영등포구 여의나루로 </td>
+        <td> 0211111111 </td>
+    </tr>
+    <tr>
+        <td> Shinchon </td>
+        <td> 서울특별시 서대문구 신촌동 </td>
+        <td> 0222222222 </td>
+    </tr>
+    <tr>
+        <td> Jongro </td>
+        <td> 서울특별시 종로구 종로3가 </td>
+        <td> 0233333333 </td>
+    </tr>
+    <tr>
+        <td> Seoul Station </td>
+        <td> 서울특별시 용산구 청파로 </td>
+        <td> 0244444444 </td>
+    </tr>
+    <tr>
+        <td> Gangnam </td>
+        <td> 서울특별시 강남구 강남대로 </td>
+        <td> 0255555555 </td>
+    </tr>
+    <tr>
+        <td> Geondae </td>
+        <td> 서울특별시 광진구 화양동 </td>
+        <td> 0266666666 </td>
+    </tr>
+</table>
+</body>
+</html>
